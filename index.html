@@ -1,0 +1,58 @@
+<!doctype html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="bootstrap.min.js"></script>
+<html>
+
+<head>
+    <link href="bootstrap-combined.min.css" rel="stylesheet">
+</head>
+
+
+<body>
+  <div class="dropdown">
+  <!-- Menu 1 -->
+  <button class="inputBarA dropdown-toggle" data-toggle="dropdown" href="#">SELECT</button>
+  <ul class="dropdown-menu dropup" role="menu" aria-labelledby="dLabel">
+      <li role="presentation">
+          <label class="checkbox">
+              <input class="checkbox_box" type="checkbox">
+              HTML.1.1 </label>
+          <label class="checkbox">
+              <input class="checkbox_box" type="checkbox">
+              HTML.1.2 </label>
+      </li>
+      <!-- Menu 2 -->
+      <li class="dropdown-submenu">
+          <input class="checkbox_box" type="checkbox">
+          <a tabindex="-1" href="#">Centralities</a>
+          <ul class="dropdown-menu">
+            <label class="checkbox">
+                <input class="checkbox_box" type="checkbox">
+                HTML.2.1 </label>
+            <label class="checkbox">
+                <input class="checkbox_box" type="checkbox">
+                HTML.2.2 </label>
+                <!--Menu 3-->
+                <li class="dropdown-submenu">
+                    <input type="checkbox" class="checkbox_box">
+                    <a tabindex="-1" href="#">Centralities 2</a>
+                    <ul class="dropdown-menu">
+                      <label class="checkbox">
+                          <input type="checkbox" class="checkbox_box">
+                          HTML.3.1 </label>
+                      <label class="checkbox">
+                          <input type="checkbox" class="checkbox_box">
+                          HTML.3.2 </label>
+                    </ul>
+                </li>
+          </ul>
+
+      </li>
+  </ul>
+</div>
+</body>
+
+</html>
+
+<script src="index.js"></script>
