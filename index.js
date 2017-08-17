@@ -16,40 +16,37 @@ var SelectChildrenOfItem = function(menu_item) {
       //Set menu_item to be highlighted
       $(menu_item).attr('checked', true);
 
-      var siblings = $(menu_item).siblings(".dropdown-menu");
+      if (typeof $(menu_item).attr('children') !== typeof undefined && $(menu_item).attr('children') !== false) {  //if this checkbox has children
 
-      if($(menu_item).siblings().length > 0) { //if this has a submenu as a sibling
+          var children_names = $.parseJSON($(menu_item).attr('children')); //get list of childrens names
+          var children = []; //the array that will hold the children dom elements
 
-        var submenu = $(menu_item).siblings(".dropdown-menu").first();
-        //get submenu options
-        var submenus = $(submenu).find("> .checkbox > .checkbox_box");
-        submenus.push($(submenu).find("> .dropdown-submenu > .checkbox_box"));
-      }
-
-
-      if (typeof submenus !== typeof undefined) {
-        //run through all submenus and highlight them and their children (this is the depth first search bit)
-        for(var i=0; i < submenus.length; i++) {
-            var submenu = submenus[i];
-            SelectChildrenOfItem(submenu);
-        }
-      }
-
-
-}
-
-var ConstructSelectList = function() {
-      //array of selected Items
-      var items = [];
-
-      //Gets all menu elements that are selected AND have no children
-      var selectedMenuItems = $("#multiselect-tree").find(".highlighted").toArray();
-      for(i=0; i<selectedMenuItems.length; i++) {
-          var menu_item = $(selectedMenuItems[i])
-          if (menu_item.children().length < 1) { //if the current menu item has no submenus
-              items.push($(selectedMenuItems[i]).text());
+          //get actual children dom elements
+          for (var i=0; i < children_names.length; i++) {
+              var child_elem = $('#mydropdown').find('[name="' + children_names[i].name + '"]');
+              children.push(child_elem);
           }
       }
 
-      console.log(items);
+      if (typeof children !== typeof undefined) {
+          for(var i=0; i < children.length; i++) {
+              var child = children[i];
+              SelectChildrenOfItem(child); //gooes one level deeper to see if this dom element also has children
+          }
+      }
+}
+
+var ConstructSelectList = function() { //constructs list of all selected elements that DO NOT have children (because we don't want to inclue elements with children in the list)
+      var selectItems = [];
+
+      //Gets all menu elements that are selected AND have no children
+      var selectedMenuItems = $("#mydropdown").find(":highlighted").toArray();
+      for(i=0; i<selectedMenuItems.length; i++) {
+          var menu_item = $(selectedMenuItems[i])
+          if (menu_item.children().length < 1) { //if the current menu item has no submenus
+              selectItems.push($(selectedMenuItems[i]).text());
+          }
+      }
+
+      console.log(selectItems);
 }
