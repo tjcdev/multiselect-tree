@@ -21,7 +21,7 @@ $(document).ready(function() {
             }
 
 
-            if (typeof $(menu_item).attr('children') !== typeof undefined && $(menu_item).attr('children') !== false) {  //if this checkbox has children
+            if (typeof $(menu_item).attr('data-children') !== typeof undefined && $(menu_item).attr('data-children') !== false) {  //if this checkbox has children
 
                 var children_names = $.parseJSON($(menu_item).attr('children')); //get list of childrens names
                 var children = []; //the array that will hold the children dom elements
@@ -49,7 +49,7 @@ $(document).ready(function() {
             var selectedMenuItems = $("#mydropdown").find(":checked").toArray();
             for(i=0; i<selectedMenuItems.length; i++) {
                 var menu_item = $(selectedMenuItems[i])
-                if (!menu_item.attr('children')) { //if the current menu item has no submenus
+                if (!menu_item.attr('data-children')) { //if the current menu item has no submenus
                     selectItems.push($(selectedMenuItems[i]).attr('name'));
                 }
             }
