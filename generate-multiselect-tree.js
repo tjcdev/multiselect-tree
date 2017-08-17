@@ -1,23 +1,43 @@
 $(document).ready(function() {
 
-    //Generating a standard menu item
-    var standard_menu_item = $('#mydropdownmenu')
-          .append($('<li>')
-              .append($('<a>')
-                  .append('<input>')));
+    $.getJSON('menu.json', function(data) {
+        generateMenuFromJSON(data);
+    });
 
-    //Generating menu item that contains a submenu
-    var submenu_menu_item = $('the_sub_menu_currently_in')
-          .append($('<li>')
-              .append($('<ul>')));
+    var generateMenuFromJSON = function(json) {
+        var parent_menu = $('#mydropdownmenu'); //sets starting point for menu
 
+        var menu_items = json;//$.parseJSON($(json)); //gets list of items in first level of menu
 
-    var generateSubMenu = function(current_menu) {
-
+        generateMenu(menu_items, parent_menu); //draws the elements
     };
 
-    var generateMenuItem = function(current_menu) {
+    var generateMenu = function(menu_items, parent_menu) {
+        //loop through json in a depth first way generating content depth first
+        for(var i=0; i<menu_items.length; i++) {
+            menu_item = menu_items[i];
+            if (menu_item.children.length < 1) {
+                generateMenuItem(menu_item, parent_menu);
+            } else {
+                generateSubMenuItem(menu_item, parent_menu);
+            }
+        }
+    };
 
+    var generateSubMenuItem = function(menu_item, parent_menu) {
+        $(parent_menu)
+              .append($('<li>')
+                  .append($('<ul>')));
+        //call the main generate_menu function  with new menu items and new parent_menu (depth first bit)
+        //set new parent to be the sub_menu (using the name attribute)
+        generateMenu(menu_item.children, menu_item);
+    };
+
+    var generateMenuItem = function(menu_item, parent_menu) { //adds a new menu_item to the parent_menu
+          $(parent_menu)
+                .append($('<li>')
+                    .append($('<a>')
+                        .append('<input>')));
     };
 
 });
