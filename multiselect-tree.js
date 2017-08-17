@@ -1,11 +1,9 @@
-$(document).ready(function() {
-
-      //selecting and highlighting clicked element and all it's submenu elements
-      $("input[type='checkbox']").click(function() {
-          var checked = $(this).is(':checked');
-          SelectChildrenOfItem(this, checked);
+  //selecting and highlighting clicked element and all it's submenu elements
+      var checkboxChanged = function(box) {
+          var checked = $(box).is(':checked');
+          SelectChildrenOfItem(box, checked);
           ConstructSelectList();
-      });
+      };
 
       $('.dropdown-menu').click(function(e) {
           e.stopPropagation();
@@ -23,7 +21,7 @@ $(document).ready(function() {
 
             if (typeof $(menu_item).attr('data-children') !== typeof undefined && $(menu_item).attr('data-children') !== false) {  //if this checkbox has children
 
-                var children_names = $.parseJSON($(menu_item).attr('children')); //get list of childrens names
+                var children_names = $.parseJSON($(menu_item).attr('data-children')); //get list of childrens names
                 var children = []; //the array that will hold the children dom elements
 
                 //get actual children dom elements
@@ -36,7 +34,6 @@ $(document).ready(function() {
             if (typeof children !== typeof undefined) {
                 for(var i=0; i < children.length; i++) {
                     var child = children[i];
-                    console.log(checked);
                     SelectChildrenOfItem(child, checked); //gooes one level deeper to see if this dom element also has children
                 }
             }
@@ -56,5 +53,3 @@ $(document).ready(function() {
 
             console.log(selectItems);
       }
-
-});
