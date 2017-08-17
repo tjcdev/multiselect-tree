@@ -27,29 +27,33 @@
                   <input  type="checkbox" name="3" children='[{"name": "3.1"}, {"name": "3.2"}, {"name":"3.3"}]'>
                   <a tabindex="-1" href="#">3</a>
                   <ul class="dropdown-menu">
-                    <label class="checkbox">
-                        <input type="checkbox" name="3.1">
-                        3.1 </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="3.2">
-                        3.2 </label>
+                    <li role="presentation">
+                        <label class="checkbox">
+                            <input type="checkbox" name="3.1">
+                            3.1 </label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="3.2">
+                            3.2 </label>
+                    </li>
                         <!--Menu 3-->
                         <li class="dropdown-submenu">
                             <input type="checkbox" name="3.3" children='[{"name": "3.3.1"}, {"name": "3.3.2"}, {"name": "3.3.3"}, {"name": "3.3.4"}]'>
                             <a tabindex="-1" href="#">3.3</a>
                             <ul class="dropdown-menu">
-                              <label class="checkbox">
-                                  <input type="checkbox" name="3.3.1">
-                                  3.3.1 </label>
-                              <label class="checkbox">
-                                  <input type="checkbox"  name="3.3.2">
-                                  3.3.2 </label>
-                              <label class="checkbox">
-                                  <input type="checkbox" name="3.3.1">
-                                  3.3.3 </label>
-                              <label class="checkbox">
-                                  <input type="checkbox"  name="3.3.2">
-                                  3.3.4 </label>
+                                <li role="presentation">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="3.3.1">
+                                        3.3.1 </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox"  name="3.3.2">
+                                        3.3.2 </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="3.3.1">
+                                        3.3.3 </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox"  name="3.3.2">
+                                        3.3.4 </label>
+                                </li>
                             </ul>
                         </li>
                   </ul>
@@ -60,4 +64,4 @@
 
 </html>
 
-<script src="index.js"></script>
+<script src="multiselect-tree.js"></script>

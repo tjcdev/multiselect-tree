@@ -1,0 +1,50 @@
+[{
+  "name":"Sector 1",
+  "children": [{
+                "name" : "Org 1",
+                "children": [{
+                              "name" : "1.1 brand 1",
+                              "children" : {}
+                            },
+                            {
+                              "name" : "1.1 band 2",
+                              "children" : {}
+                            }]
+              },
+              {
+                "name" : "Org 2",
+                "children": [{
+                              "name" : "1.2 brand 1",
+                              "children" : {}
+                            },
+                            {
+                              "name" : "1.2 band 2",
+                              "children" : {}
+                            }]
+              }]
+},
+{
+  "name":"Sector 2",
+  "children": [{
+                "name" : "Org 1",
+                "children": [{
+                              "name" : "2.1 brand 1",
+                              "children" : {}
+                            },
+                            {
+                              "name" : "2.1 band 2",
+                              "children" : {}
+                            }]
+              },
+              {
+                "name" : "Org 2",
+                "children": [{
+                              "name" : "2.2 brand 1",
+                              "children" : {}
+                            },
+                            {
+                              "name" : "2.2 band 2",
+                              "children" : {}
+                            }]
+              }]
+}]
