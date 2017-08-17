@@ -47,7 +47,7 @@ var ConstructSelectList = function() { //constructs list of all selected element
       var selectedMenuItems = $("#mydropdown").find(":checked").toArray();
       for(i=0; i<selectedMenuItems.length; i++) {
           var menu_item = $(selectedMenuItems[i])
-          if (menu_item.children().length < 1) { //if the current menu item has no submenus
+          if (!menu_item.attr('children')) { //if the current menu item has no submenus
               selectItems.push($(selectedMenuItems[i]).attr('name'));
           }
       }
