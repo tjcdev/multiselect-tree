@@ -52,7 +52,8 @@ $(document).ready(function() {
         $(parent_menu)
             .append($('<li>', {class : "dropdown-submenu"})
                 .append($('<a>', { class: "small", tabIndex : "-1", href : "#" })
-                    .append($('<input>', { class: "menu-checkbox", name : menu_item.name, type : "checkbox", "data-children" : children_string, onclick : "checkboxChanged(this)"})))
+                    .append($('<input>', { class: "menu-checkbox", name : menu_item.name, type : "checkbox", "data-children" : children_string, onclick : "checkboxChanged(this)"}))
+                    .append($('<span>', {text: ' ' + menu_item.name})))
                 .append($('<ul>', {id: 'ul_' + menu_item.name.replace(/\s/g, ''), class : "dropdown-menu"})));
 
         //set new parent to be the sub_menu (using the name attribute)
@@ -80,7 +81,8 @@ $(document).ready(function() {
           $(parent_menu)
                 .append($('<li>')
                     .append($('<a>', { class: "small", tabIndex : "-1", href : "#" })
-                        .append($('<input>', {class: "menu-checkbox", name: menu_item.name, type : "checkbox", onclick : "checkboxChanged(this)"}))));
+                        .append($('<input>', {class: "menu-checkbox", name: menu_item.name, type : "checkbox", onclick : "checkboxChanged(this)"}))
+                        .append($('<span>', {text : ' ' + menu_item.name}))));
     };
 
 });
