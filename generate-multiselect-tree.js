@@ -13,6 +13,7 @@ $(document).ready(function() {
     };
 
     var generateMenu = function(menu_items, parent_menu) {
+
         //loop through json in a depth first way generating content depth first
         for(var i=0; i<menu_items.length; i++) {
             menu_item = menu_items[i];
@@ -29,14 +30,16 @@ $(document).ready(function() {
         $(parent_menu)
             .append($('<li>')
                 .append($('<a>')
-                    .append('<input>', {"name" : menu_item.name}))
-                  .append($('<ul>')));
-
+                    .append($('<input>')))
+                .append($('<ul>', {id: 'ul_' + menu_item.name.replace(/\s/g, '')})));
         //call the main generate_menu function  with new menu items and new parent_menu (depth first bit)
         //set new parent to be the sub_menu (using the name attribute)
-        var submenu = $(parent_menu).find('> li > ul');
+        var submenu_id = '#ul_' + menu_item.name.replace(/\s/g, '');
+        var submenu = $(submenu_id);
+        if (typeof menu_item.children.length !== typeof undefined) {
+            generateMenu(menu_item.children, submenu);
+        }
 
-        generateMenu(menu_item.children, submenu);
     };
 
     var generateMenuItem = function(menu_item, parent_menu) { //adds a new menu_item to the parent_menu

@@ -1,7 +1,7 @@
 [{
   "name":"Sector 1",
   "children": [{
-                "name" : "Org 1",
+                "name" : "Org 1_1",
                 "children": [{
                               "name" : "1.1 brand 1",
                               "children" : {}
@@ -12,7 +12,7 @@
                             }]
               },
               {
-                "name" : "Org 2",
+                "name" : "Org 1_2",
                 "children": [{
                               "name" : "1.2 brand 1",
                               "children" : {}
@@ -26,7 +26,7 @@
 {
   "name":"Sector 2",
   "children": [{
-                "name" : "Org 1",
+                "name" : "Org 2_1",
                 "children": [{
                               "name" : "2.1 brand 1",
                               "children" : {}
@@ -37,7 +37,7 @@
                             }]
               },
               {
-                "name" : "Org 2",
+                "name" : "Org 2_2",
                 "children": [{
                               "name" : "2.2 brand 1",
                               "children" : {}
