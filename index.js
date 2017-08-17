@@ -5,6 +5,10 @@ $("input[type='checkbox']").click(function() {
     ConstructSelectList();
 });
 
+$('.dropdown-menu').click(function(e) {
+    e.stopPropagation();
+});
+
 //Performs depth first search of children of menu_item
 var SelectChildrenOfItem = function(menu_item, checked) {
       //Set menu_item to be highlighted
