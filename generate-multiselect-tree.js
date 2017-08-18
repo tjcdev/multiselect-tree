@@ -66,7 +66,7 @@ $(document).ready(function() {
                           .append($('<a>', { class: "small", tabIndex : "-1", href : "#" })
                               .append($('<input>', { class: "menu-checkbox", name : menu_item.name, type : "checkbox", "data-children" : children_string, onclick : "checkboxChanged(this)"}))
                               .append($('<span>', {text: ' ' + menu_item.name})))
-                          .append($('<ul>', {id: 'ul_' + menu_item.name.replace(/\s/g, ''), class : "dropdown-menu"}));
+                          .append($('<ul>', {class : "dropdown-menu"}));
 
         //Bit of trickery to get the submenus working
         var tempElem = $(newElem).appendTo(parent_menu);
